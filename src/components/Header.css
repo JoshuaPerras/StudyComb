@@ -1,23 +1,23 @@
 .head{
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
+    padding: 0.7em;
     background-color: #FFFEDF;
     height: 8vh;
 }
 
-h1 {
-    font-size: 16px;
-}
+
 
 .menu{
     display: flex;
     gap: 20px;
+    
 }
 
 .text{
     background-color: gold;
-    padding: 2px 16px;
     border-radius: 8px;
-
+    padding: 2px 10px;
+    font-size: 16px;
+    align-self: center;
 }
