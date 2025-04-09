@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fffad5;
   --foreground: #171717;
 }
 
@@ -24,3 +24,148 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Heyran Stuff */
+* {
+  margin: 0;
+}
+body {
+  background-color: fffad5;
+}
+.filter-page {
+  padding: 0px 0px 20px 0px;
+}
+
+
+.filter-section {
+  /* margin-bottom: 20px; */
+  background-color: #FFD34E;
+  padding: 20px;
+}
+
+
+.filter-button {
+  padding: 12px;
+  font-size: 1.3rem;
+  font-style:italic;
+  /* border: 1px solid black; */
+  background-color: #ffe69d; 
+  border-radius: 8px;
+  width: 50%;
+  cursor: pointer;
+  text-align: center;
+  color: #DB9E36;
+  /* margin-bottom: 10px; */
+}
+
+.filter-button:hover {
+  background-color: #DB9E36; 
+  color: white;
+}
+
+.dropdown {
+  background-color: #FFD34E;
+  /* border: 1px solid #ccc; */
+  /* margin-top: 10px; */
+  padding: 20px 0px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.tag-item {
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #D4553C; 
+  color: white; 
+}
+
+.tag-item.selected {
+  background-color: #8d2510; 
+}
+
+.clear-tags {
+  /* margin-top: 10px; */
+  padding: 8px;
+  /* margin-bottom: 20px; */
+  /* background-color: #BD4932; */
+  text-decoration: underline;
+  color: #8d2510;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 93px;
+  /* text-align: center; */
+  display: block;
+
+  font-size: 1rem;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 0px 20px;
+  margin-top: 20px;
+}
+
+.square {
+  border-radius: 5px;
+  /* border: 10px solid #FFD34E;  */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* height: 40vh; */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffd34e;
+}
+
+.image {
+  margin-top: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spot-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  /* margin-top: 50px; */
+  padding: 10px;
+  background-color: #DB9E36; 
+  color: #FFFFFF;
+}
+
+.tags {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-label {
+  background-color: #23767F; 
+  color: #FFFFFF; 
+  padding: 4px 8px;
+  border-radius: 16px;
+}
+
+
+
