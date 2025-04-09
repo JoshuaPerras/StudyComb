@@ -7,8 +7,8 @@ const Header = () => {
             <h1>pic</h1>
             <div className="menu">
                 <div className='text'><Link href='/' >Home</Link></div>
-                <div className='text'><Link href='/map' >map</Link></div>
-                <div className='text'>filer</div>
+                <div className='text'><Link href='/map'>map</Link></div>
+                <div className='text'><Link href='/filter' >filter</Link></div>
                 <div className='text'><Link href='/signup' >sign-up</Link></div>
             </div>
         </div>
