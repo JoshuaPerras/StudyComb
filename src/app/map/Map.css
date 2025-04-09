@@ -1,0 +1,45 @@
+section {
+    height: 92vh;
+    background: rgb(255,237,177);
+    background: linear-gradient(180deg, rgba(255,237,177,1) 25%, rgba(255,211,78,1) 63%, rgba(212,143,4,1) 100%);
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.profileInfo h1 {
+    font-family: DynaPuff;
+    font-size: 32px;
+}
+.profileInfo h2 {
+    font-size: 20px;
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 10vh;
+    align-content: center;
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.mapArea{
+    background-color: white;
+    height: 70vh;
+    width: 50%;
+    flex-grow: 2;
+    margin-top: 5vh;
+    margin-right: 10vh;
+    text-align: center;
+}
+
+
+
+
+/* FFEDB1 25 */
+
+/* FFD34E 63 */
+
+/* D48F04 100 */
