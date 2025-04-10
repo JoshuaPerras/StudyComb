@@ -6,7 +6,7 @@ interface HexagonProps {
   size?: number; // Size in pixels
   borderWidth?: number;
   borderColor?: string;
- 
+  label?: string;
 }
 
 
@@ -16,6 +16,7 @@ const Hexagon: React.FC<HexagonProps> = ({
   size = 200,
   borderWidth = 4,
   borderColor = "black",
+  label = ""
  
 }) => {
   const outerSize = size;
@@ -32,7 +33,6 @@ const Hexagon: React.FC<HexagonProps> = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        transform: `rotate(30deg)`,
       }}
     >
       <div
@@ -43,6 +43,7 @@ const Hexagon: React.FC<HexagonProps> = ({
           clipPath: "inherit",
         }}
       >
+         
         <Image
           src={src}
           alt={alt}
@@ -50,6 +51,18 @@ const Hexagon: React.FC<HexagonProps> = ({
           objectFit="cover"
           quality={100}
         />
+
+          {label && (
+            <div
+              className="absolute inset-0 flex items-center justify-center text-black text-center font-semibold text-lg pointer-events-none"
+              style={{
+                
+              }}
+            >
+              {label}
+            </div>
+          )}
+       
       </div>
     </div>
   );
