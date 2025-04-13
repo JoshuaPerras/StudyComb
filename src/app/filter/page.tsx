@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import '../globals.css';
+import './Filter.css';
 
 export default function FilterPage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
