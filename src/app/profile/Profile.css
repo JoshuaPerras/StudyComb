@@ -1,0 +1,77 @@
+.profile-container {
+    background: linear-gradient(to bottom right, #ffe68a, #f9b529);
+    min-height: 100vh;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .profile-header .avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  
+  .name {
+    color: #007a73;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .profile-card {
+    background: #fff3cd;
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .bee {
+    position: absolute;
+    width: 60px;
+  }
+  
+  .bee-left {
+    top: 50px;
+    left: 10px;
+  }
+  
+  .bee-right {
+    bottom: 30px;
+    right: 10px;
+  }
+  
+  .logout-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+  }
+  
+  .logout-button:hover {
+    background-color: #c9302c;
+  }
+  
