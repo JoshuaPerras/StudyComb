@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, DynaPuff } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${dynapuff.className} ${geistMono.variable} antialiased`}
       >
+        <Image 
+                src="/HomeBee.png"
+                alt="StudyComb Icon"
+                width={60}
+                height={60}
+                className="homeBee"
+                />
         <Header></Header>
         {children}
       </body>

@@ -25,6 +25,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.homeBee {
+  position: absolute;
+  margin: -1px 10px;
+}
+
 
 
 

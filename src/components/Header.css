@@ -1,6 +1,6 @@
 .head{
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     padding: 0.7em;
     background-color: #FFFEDF;
     height: 8vh;
