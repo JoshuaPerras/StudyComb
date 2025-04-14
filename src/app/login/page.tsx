@@ -9,9 +9,7 @@ export default function SignUp() {
             
             
             <LoginForm></LoginForm>
-            <div className='bottomHex'>
-                <Hexagon src= {combColor} size={110} borderColor='#D38E02' borderWidth={3} label='Submit'/>
-            </div>
+            
             
         </section>
     )

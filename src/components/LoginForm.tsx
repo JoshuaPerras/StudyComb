@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react"
-
+import Hexagon from '@/components/Hexagon'
+import combColor from '@/assets/CombColor.png'
 
 
 function LoginForm() {
@@ -57,6 +58,12 @@ function LoginForm() {
                     />
                 
                 
+            </div>
+
+            <div className='bottomHex'>
+                <button type="submit">
+                    <Hexagon src= {combColor} size={110} borderColor='#D38E02' borderWidth={3} label='Submit'/>
+                </button>
             </div>
 
         </form>

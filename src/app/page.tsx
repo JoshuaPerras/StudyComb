@@ -18,7 +18,14 @@ export default function Home() {
             alt="tan bee graphic"
             width={300}
             height={150}
-            /> 
+            />
+        <Image
+            src="/LightBee.png"
+            className="Lbee"
+            alt="tan bee graphic"
+            width={300}
+            height={150}
+            />
             <p className="description">Tired of hunting for your ideal study spot? StudyComb is an all-in-one platform for discovering and reviewing study spots around UGA campus. Browse student reviews, check noise levels, outlet access, and more. Find your perfect study spot today.</p>
       </div>
       <div className="cardSection">
