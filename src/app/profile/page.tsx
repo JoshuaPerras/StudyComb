@@ -1,14 +1,24 @@
 import React from 'react';
 import './Profile.css';
+import Image from 'next/image';
+import Hexagon from '@/components/Hexagon'
+import beePfp from '@/assets/pfpBee.png'
+
 
 export default function Profile() {
   return (
     <div className="profile-container">
-      <img src="/bee-left.png" alt="Left Bee" className="bee bee-left" />
+      <Image
+        src="/LightBee.png"
+        className="Lbee"
+        alt="tan bee graphic"
+        width={300}
+        height={150}
+        />
 
       <div className="profile-header">
-        <img src="/bee-avatar.png" alt="Bee Avatar" className="avatar" />
-        <h2 className="name">John Doe</h2>
+      <Hexagon src={beePfp} size={200} borderWidth={3}/>
+      <h2 className="name">John Doe</h2>
       </div>
 
       <div className="profile-card">
@@ -28,8 +38,15 @@ export default function Profile() {
           <span className="label">Password</span>
           <span className="value">**********</span>
         </div>
-        <img src="/bee-right.png" alt="Right Bee" className="bee bee-right" />
+        
       </div>
+      <Image
+          src="/TanBee.png"
+          className="bee"
+          alt="tan bee graphic"
+          width={300}
+          height={150}
+                    />
 
       <button className="logout-button">Log Out</button>
     </div>

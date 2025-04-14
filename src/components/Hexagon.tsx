@@ -33,6 +33,7 @@ const Hexagon: React.FC<HexagonProps> = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        zIndex: "5"
       }}
     >
       <div
