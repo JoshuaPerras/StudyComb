@@ -1,0 +1,150 @@
+/* style.css */
+/* Reset & Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .logo {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .nav-home {
+    font-weight: 600;
+  }
+  
+  .navbar-right {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-signin, .btn-register {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .btn-signin {
+    background-color: transparent;
+    color: #333;
+  }
+  
+  .btn-register {
+    background-color: #4a6bff;
+    color: white;
+  }
+  
+  /* Search & Filter */
+  .search-container {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  .btn-clear {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  /* Filter Tags */
+  .filter-section {
+    padding: 0 20px 15px;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .filter-title {
+    margin: 0;
+    padding: 15px 0;
+    font-size: 16px;
+  }
+  
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .tag {
+    background-color: #e9ecef;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Study Space Cards */
+  .spaces-list {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .space-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .space-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+  
+  .card-tags {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag:hover, .btn-clear:hover {
+    opacity: 0.8;
+  }
+  .btn-register:hover {
+    background-color: #3a5bef;
+  }
