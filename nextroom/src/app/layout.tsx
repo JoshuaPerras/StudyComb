@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, DynaPuff } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const dynapuff = DynaPuff({
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
@@ -25,8 +31,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${dynapuff.className} ${geistMono.variable} antialiased`}
       >
+        <Image 
+                src="/HomeBee.png"
+                alt="StudyComb Icon"
+                width={60}
+                height={60}
+                className="homeBee"
+                />
+        <Header></Header>
         {children}
       </body>
     </html>

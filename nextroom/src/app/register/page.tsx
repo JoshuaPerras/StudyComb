@@ -1,20 +1,24 @@
+'use client';
+
 import React from 'react';
 import './Register.css';
+import logo from '../../images/bee-right.png';
+import beeLeft from '../../images/bee-left.png';
+import beeRight from '../../images/bee-right.png';
 
 const RegisterPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Add registration stuff laterg
     console.log('Register form submitted');
   };
 
   return (
     <>
-      {/* Header */}
+      {/* Navbar */}
       <nav className="navbar">
         <div className="navbar-left">
-          <img src="logo.png" alt="App Logo" className="logo" />
-          <ul className="nav-menu">
+        <img src={logo.src} alt="Logo" className="logo" />
+        <ul className="nav-menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">Filter</a></li>
             <li><a href="#">Maps</a></li>
@@ -27,7 +31,7 @@ const RegisterPage: React.FC = () => {
         </div>
       </nav>
 
-      {/* Register Form */}
+      {/* Register Form Section */}
       <div className="register-container">
         <h1 className="register-title">Register</h1>
         <form className="register-form" onSubmit={handleSubmit}>
@@ -38,10 +42,9 @@ const RegisterPage: React.FC = () => {
           <button type="submit">Sign Up</button>
         </form>
 
-        {/* Bees and Background */}
-        <img src="bee-left.png" className="bee bee-left" alt="Bee flying left" />
-        <img src="bee-right.png" className="bee bee-right" alt="Bee flying right" />
-      </div>
+        <img src={beeLeft.src} alt="Bee flying left" className="bee bee-left" />
+        <img src={beeRight.src} alt="Bee flying right" className="bee bee-right" />
+        </div>
     </>
   );
 };

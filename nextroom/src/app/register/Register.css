@@ -16,7 +16,7 @@ body {
 }
 
 .logo {
-  width: 50px;
+  width: 60px;
 }
 
 .navbar-left {
@@ -40,6 +40,7 @@ body {
   border-radius: 10px;
   color: #1a1a1a;
   font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .navbar-right button {
@@ -86,10 +87,11 @@ body {
 
 .register-form input {
   padding: 0.8rem 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
   background-color: #fff8dc;
   font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .register-form button {
@@ -101,12 +103,14 @@ body {
   border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 /* Bee images */
 .bee {
   position: absolute;
   width: 100px;
+  z-index: 1;
 }
 
 .bee-left {
