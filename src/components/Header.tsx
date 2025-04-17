@@ -1,17 +1,37 @@
 'use client';
 import './Header.css'
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Link from 'next/link';
+import { Session } from 'next-auth';
+import { doLogout } from "../app/actions/index";
 
 
-const Header = () => {
+interface Session {
+    user?: {
+      name?: string;
+      email?: string;
+      image?: string;
+    };
+  }
 
-    const [isLoggedIn,setIsLoggedIn ] = useState(false);
+  interface NavbarProps {
+    session: Session | null;
+  }
 
-    const handleLogin = () => {
-        setIsLoggedIn(prev => !prev);
-    
-    }
+const Header = ({session}: NavbarProps) => {
+
+    const [isLoggedIn,setIsLoggedIn ] = useState(!!session?.user);
+
+    useEffect(() => {
+        setIsLoggedIn(!!session?.user);
+        console.log(isLoggedIn);
+      }, [session, isLoggedIn]);
+
+    const handleLogout = () => {
+        doLogout();
+        setIsLoggedIn(!!session?.user);
+        console.log(isLoggedIn);
+      };
     return (
         <div className="head">
             
@@ -21,18 +41,15 @@ const Header = () => {
                 <div className='text'><Link href='/filter' >filter</Link></div>
 
                 {
-                    !isLoggedIn && (
-                        <button onClick = {handleLogin}><div className='text'><Link href='/login' >Log-in</Link></div></button>
-                    )
-                }
-                {
-                    isLoggedIn && (
+                    isLoggedIn && session?.user ? (
                         <>
                             <div className='text'><Link href='/profile'>Profile</Link></div>
-                            <button onClick = {handleLogin}>
+                            <button onClick={handleLogout}>
                             <div className='text'><Link href='/' >Logout</Link></div>
                             </button>
                         </>
+                    ) : (
+                        <button><div className='text'><Link href='/signup' >Sign-up</Link></div></button>
                     )
                 }
             </div>
