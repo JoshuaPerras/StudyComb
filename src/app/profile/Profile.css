@@ -1,5 +1,5 @@
 .profile-container {
-    background: linear-gradient(to bottom right, #ffe68a, #f9b529);
+    background: linear-gradient(to bottom, #ffe68a, #f9b529);
     min-height: 100vh;
     text-align: center;
     padding: 2rem;
@@ -51,12 +51,16 @@
   
   .bee-left {
     top: 50px;
-    left: 10px;
+    left: 210px;
+    width: 200px;
+    height: 120px;
   }
   
   .bee-right {
-    bottom: 30px;
-    right: 10px;
+    top: 210px;
+    right: -300px;
+    width: 180px;
+    height: 110px;
   }
   
   .logout-button {

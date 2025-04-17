@@ -1,13 +1,20 @@
 import React from 'react';
 import './Profile.css';
+import Image from 'next/image'
+import beePfp from '@/assets/pfpBee.png'
+import leftBee from '@/assets/bee (1).png';
+import rightBee from '@/assets/TanBee (2).png';
+
 
 export default function Profile() {
   return (
     <div className="profile-container">
-      <img src="/bee-left.png" alt="Left Bee" className="bee bee-left" />
+      <Image src={leftBee} alt="Left Bee" className="bee bee-left" />
 
       <div className="profile-header">
-        <img src="/bee-avatar.png" alt="Bee Avatar" className="avatar" />
+        <Image src={beePfp} 
+        alt="Bee Avatar" 
+        className="avatar" />
         <h2 className="name">John Doe</h2>
       </div>
 
@@ -28,7 +35,7 @@ export default function Profile() {
           <span className="label">Password</span>
           <span className="value">**********</span>
         </div>
-        <img src="/bee-right.png" alt="Right Bee" className="bee bee-right" />
+        <Image src={rightBee} alt="Right Bee" className="bee bee-right" />
       </div>
 
       <button className="logout-button">Log Out</button>
