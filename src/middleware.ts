@@ -14,6 +14,7 @@ const middleware = async (request: NextRequest) => {
 
     if (!isAuthenticated && !publicPaths.includes(pathname)) {
         return NextResponse.redirect(new URL("/", request.url));
+        
     }
 
     return NextResponse.next();
@@ -22,9 +23,7 @@ const middleware = async (request: NextRequest) => {
 
 export const config = {
   matcher: [
-    "/create-item/:path*",
-    "/update-item/:path*",
-    "/delete-item/:path*",
+    "/addRoom/:path*",
   ],
 };
 
