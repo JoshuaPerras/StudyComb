@@ -1,6 +1,7 @@
 
 import "./Homepage.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -9,8 +10,8 @@ export default function Home() {
         <h1 className="title">StudyComb</h1>
         <h4 className="subheading">Bee Studious</h4>
         <div className="splashButtons">
-          <button className="find">Find</button>
-          <button className="rate">Rate</button>
+          <button className="find"><Link href='/filter' >Find</Link></button>
+          <button className="rate"><Link href='/addRoom' >Add</Link></button>
         </div>
         <Image
             src="/TanBee.png"
