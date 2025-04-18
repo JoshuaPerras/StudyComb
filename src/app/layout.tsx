@@ -4,6 +4,8 @@ import "./globals.css";
 import { auth } from "../auth";
 import Header from "@/components/Header";
 import Image from "next/image";
+import { SessionProvider } from "next-auth/react"
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +39,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${dynapuff.className} ${geistMono.variable} antialiased`}
       >
+        <SessionProvider>
         <Image 
                 src="/HomeBee.png"
                 alt="StudyComb Icon"
@@ -46,6 +49,7 @@ export default async function RootLayout({
                 />
         <Header session={session}></Header>
         {children}
+        </SessionProvider>
       </body>
     </html>
   );

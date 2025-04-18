@@ -18,6 +18,9 @@
     gap: 20px;
     margin-top: 60px;
     z-index: 5;
+    :hover {
+        cursor: pointer;
+    }
 }
 
 .description {

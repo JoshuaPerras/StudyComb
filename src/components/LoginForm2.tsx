@@ -3,6 +3,8 @@ import Link from "next/link";
 import { doCredentialLogin } from "../app/actions";
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import connectMongoDB from "../../config/mongodb";
+
 
 const LoginForm2 = () => {
   const router = useRouter();
