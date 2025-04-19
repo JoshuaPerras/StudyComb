@@ -9,7 +9,7 @@ export default function Home() {
         <h1 className="title">StudyComb</h1>
         <h4 className="subheading">Bee Studious</h4>
         <div className="splashButtons">
-          <button className="find">Find</button>
+          <a href="/filter"><button className="find">Find</button></a>
           <button className="rate">Rate</button>
         </div>
         <Image
