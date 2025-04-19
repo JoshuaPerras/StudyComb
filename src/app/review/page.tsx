@@ -5,9 +5,8 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import logo from '../../images/logo.png';
 import beeFly1 from '../../assets/TanBee (1).png';
-import beeFly2 from '../../images/bee-right.png';
+import beeFly2 from '@/images/bee-right.png';
 
 interface Review {
   id: number;
@@ -99,7 +98,6 @@ export default function ReviewPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-yellow-200 py-12 px-4">
       {/* Bee images */}
-      <Image src={logo} alt="Bee dog logo" className="absolute top-4 left-4 w-16 h-16" />
       <Image src={beeFly1} alt="Flying bee" className="absolute top-20 right-12 w-12 h-12 animate-bounce" />
       <Image src={beeFly2} alt="Flying bee" className="absolute bottom-12 left-12 w-12 h-12 animate-pulse" />
 
