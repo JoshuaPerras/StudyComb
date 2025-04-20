@@ -1,22 +1,17 @@
+"use client";
 import React from 'react';
 import './Profile.css';
-import Image from 'next/image'
-import beePfp from '@/assets/pfpBee.png'
-import leftBee from '@/assets/bee (1).png';
-import rightBee from '@/assets/TanBee (2).png';
+import Image from 'next/image';
 import Hexagon from '@/components/Hexagon'
+import beePfp from '@/assets/pfpBee.png'
+import { useSession } from 'next-auth/react';
 
 
 export default function Profile() {
+  const { data: session, status } = useSession();
+
   return (
     <div className="profile-container">
-      <Image src={leftBee} alt="Left Bee" className="bee bee-left" />
-
-      <div className="profile-header">
-        <Image src={beePfp} 
-        alt="Bee Avatar" 
-        className="avatar" />
-        <h2 className="name">John Doe</h2>
       <Image
         src="/LightBee.png"
         className="Lbee"
@@ -27,17 +22,17 @@ export default function Profile() {
 
       <div className="profile-header">
       <Hexagon src={beePfp} size={200} borderWidth={3}/>
-      <h2 className="name">John Doe</h2>
+      <h2 className="name">{session ? session.user?.name : ""}</h2>
       </div>
 
       <div className="profile-card">
         <div className="info-row">
           <span className="label">Username</span>
-          <span className="value">JohnBeey</span>
+          <span className="value">{session ? session.user?.name : ""}</span>
         </div>
         <div className="info-row">
           <span className="label">Email</span>
-          <span className="value">JohnDoe@gmail.com</span>
+          <span className="value">{session ? session.user?.email : ""}</span>
         </div>
         <div className="info-row">
           <span className="label">Phone</span>
@@ -47,11 +42,7 @@ export default function Profile() {
           <span className="label">Password</span>
           <span className="value">**********</span>
         </div>
-<<<<<<< HEAD
-        <Image src={rightBee} alt="Right Bee" className="bee bee-right" />
-=======
         
->>>>>>> 52ccdd83e47457f1a8ea3fdaee067b4e3429a700
       </div>
       <Image
           src="/TanBee.png"

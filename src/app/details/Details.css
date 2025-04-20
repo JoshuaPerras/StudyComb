@@ -60,23 +60,6 @@ body, html {
     border-radius: 10px;
   }
   
-  .arrow {
-    position: absolute;
-    top: 50%;
-    font-size: 24px;
-    transform: translateY(-50%);
-    border: 100px;
-    cursor: pointer;
-  }
-  
-  .arrow.left {
-    left: 10px;
-  }
-  
-  .arrow.right {
-    right: 10px;
-  }
-  
   .rating-container {
     background-color: white;
     border-radius: 999px;
@@ -93,22 +76,6 @@ body, html {
     color: #333;
     max-width: 500px;
     margin: 0 auto 20px auto;
-  }
-  
-  .down-arrow {
-    font-size: 2rem;
-    color: #333;
-    margin-top: 20px;
-  }
-  
-  .detailsButton {
-    background: transparent;
-    border: none;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #444;
-    margin-top: 5px;
-    cursor: pointer;
   }
   
   /* Decorative bees */

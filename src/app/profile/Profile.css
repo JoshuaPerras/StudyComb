@@ -1,11 +1,6 @@
 .profile-container {
-<<<<<<< HEAD
-    background: linear-gradient(to bottom, #ffe68a, #f9b529);
-    min-height: 100vh;
-=======
     background: linear-gradient(to bottom right, #ffe68a, #f9b529);
     min-height: 92vh;
->>>>>>> 52ccdd83e47457f1a8ea3fdaee067b4e3429a700
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -64,22 +59,6 @@
     z-index: 1;
 }
   
-<<<<<<< HEAD
-  .bee-left {
-    top: 50px;
-    left: 210px;
-    width: 200px;
-    height: 120px;
-  }
-  
-  .bee-right {
-    top: 210px;
-    right: -300px;
-    width: 180px;
-    height: 110px;
-  }
-=======
->>>>>>> 52ccdd83e47457f1a8ea3fdaee067b4e3429a700
   
   .Lbee {
     position: absolute;

@@ -18,6 +18,9 @@
     gap: 20px;
     margin-top: 60px;
     z-index: 5;
+    :hover {
+        cursor: pointer;
+    }
 }
 
 .description {
@@ -35,6 +38,9 @@
 }
 .find {
     background-color: #bd4932;
+}
+.find:hover {
+    background-color: #851e0a;
 }
 .spinButton {
     padding: 10px 30px;
