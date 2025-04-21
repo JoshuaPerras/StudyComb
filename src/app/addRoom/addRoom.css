@@ -9,14 +9,17 @@
 }
 
 .tag {
-    width: 70%;
+    width: 50%;
 }
 
-
+.leftSide {
+    width: 50%;
+}
 
 .split {
     display: flex;
-    gap: 10px    ;
+    gap: 10px;
+    justify-content: center;
 }
 
 .card {
@@ -24,7 +27,7 @@
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 90%;
+    width: 80%;
     text-align: center;
 }
 
