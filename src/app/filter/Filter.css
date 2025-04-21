@@ -102,6 +102,12 @@ body {
   flex-direction: column;
   background-color: #ffd34e;
   height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.square:hover {
+  transform: scale(1.1); /* Enlarged hover effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .spot-name {
