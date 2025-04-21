@@ -4,12 +4,20 @@ import './Profile.css';
 import Image from 'next/image';
 import Hexagon from '@/components/Hexagon'
 import beePfp from '@/assets/pfpBee.png'
-import { useSession } from "next-auth/react"
-
+import { useSession } from 'next-auth/react';
 
 export default function Profile() {
   const { data: session, status } = useSession();
 
+
+
+  if (status === "loading") {
+    return <div className='profile-container'>Loading user data...</div>
+  }
+
+  if (!session) {
+    return <div className='profile-container'>Not Logged In</div>
+  }
   return (
     <div className="profile-container">
       <Image
@@ -22,17 +30,17 @@ export default function Profile() {
 
       <div className="profile-header">
       <Hexagon src={beePfp} size={200} borderWidth={3}/>
-      <h2 className="name">{session ? session.user?.name : ""}</h2>
+      <h2 className="name">{session.user?.name}</h2>
       </div>
 
       <div className="profile-card">
         <div className="info-row">
           <span className="label">Username</span>
-          <span className="value">{session ? session.user?.name : ""}</span>
+          <span className="value">{session.user?.name}</span>
         </div>
         <div className="info-row">
           <span className="label">Email</span>
-          <span className="value">{session ? session.user?.email : ""}</span>
+          <span className="value">{session.user?.email}</span>
         </div>
         <div className="info-row">
           <span className="label">Phone</span>
@@ -52,7 +60,6 @@ export default function Profile() {
           height={150}
                     />
 
-      <button className="logout-button">Log Out</button>
     </div>
   );
 }

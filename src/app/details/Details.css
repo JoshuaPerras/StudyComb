@@ -12,8 +12,7 @@ body, html {
     flex-direction: column;
     align-items: center;
   }
-  
-  /* HEADER */
+
   .header {
     width: 100%;
     display: flex;
@@ -28,7 +27,6 @@ body, html {
     height: 40px;
   }
   
-  /* DETAILS SECTION */
   .details {
     text-align: center;
     padding: 40px;
@@ -37,6 +35,7 @@ body, html {
   }
   
   .title {
+    font-family: var(--font-title), sans-serif;
     font-size: 2.5rem;
     color: #065f63;
     font-weight: 700;
@@ -48,44 +47,40 @@ body, html {
     border: 10px solid #a87000;
     border-radius: 20px;
     padding: 20px;
-    display: inline-block;
-    position: relative;
     width: 400px;
-    height: 400px;
+    height: 320px;
+    margin: 0 auto;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
+
   .imageCard img {
-    width: 100%;
-    max-width: 400px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
     border-radius: 10px;
-  }
-  
-  .arrow {
-    position: absolute;
-    top: 50%;
-    font-size: 24px;
-    transform: translateY(-50%);
-    background-color: #fff8e3;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .arrow.left {
-    left: 10px;
-  }
-  
-  .arrow.right {
-    right: 10px;
   }
   
   .rating-container {
     background-color: white;
     border-radius: 999px;
-    padding: 8px 20px;
-    display: inline-block;
-    margin: 20px 0;
+    padding: 5px 15px; 
+    margin: 16px auto;
     font-size: 1.5rem;
     color: #f4c150;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rating-container span {
+    color: #f4c150; 
+  }
+  
+  .location {
+    font-family: var(--font-geist-mono), sans-serif;
   }
   
   .details p {
@@ -94,37 +89,25 @@ body, html {
     color: #333;
     max-width: 500px;
     margin: 0 auto 20px auto;
+    font-family: var(--font-geist-sans), sans-serif;
   }
   
-  .down-arrow {
-    font-size: 2rem;
-    color: #333;
-    margin-top: 20px;
-  }
-  
-  .detailsButton {
-    background: transparent;
-    border: none;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #444;
-    margin-top: 5px;
-    cursor: pointer;
-  }
-  
-  /* Decorative bees */
   .bee {
     position: absolute;
     width: 80px;
   }
   
   .bee-left {
-    top: 160px;
-    left: -60px;
+    top: 50px;
+    left: -110px;
+    width: 200px;
+    height: 120px;
   }
   
   .bee-right {
-    top: 160px;
-    right: -60px;
+    top: 300px;
+    right: -100px;
+    width: 180px;
+    height: 110px;
   }
   

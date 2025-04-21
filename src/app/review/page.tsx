@@ -129,6 +129,7 @@ export default function ReviewPage() {
       {/* Bee images */}
       <Image src={beeFly1} alt="Flying bee" className="absolute bottom-12 left-12 w-12 h-12 animate-pulse" />
 
+
       <div className="max-w-xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-6 text-yellow-900">Review a Study Spot</h1>
         
