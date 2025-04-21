@@ -13,6 +13,7 @@ const geistSans = Geist({
 });
 
 const dynapuff = DynaPuff({
+  variable: "--font-title",
   subsets: ['latin'],
 });
 
