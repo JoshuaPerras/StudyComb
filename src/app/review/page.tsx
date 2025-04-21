@@ -2,10 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+<<<<<<< HEAD
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Textarea } from '../../components/ui/textarea';
 import beeFly1 from '../../assets/TanBee (1).png';
+=======
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import beeFly1 from '../../assets/TanBee (1).png';
+import beeFly2 from '@/images/bee-right.png';
+>>>>>>> 8440931f229cb4d085bb36ef4c0829c4d3fe6009
 
 interface Review {
   id: number;
@@ -98,6 +106,11 @@ export default function ReviewPage() {
     <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-yellow-200 py-12 px-4">
       {/* Bee images */}
       <Image src={beeFly1} alt="Flying bee" className="absolute top-20 right-12 w-12 h-12 animate-bounce" />
+<<<<<<< HEAD
+=======
+      <Image src={beeFly2} alt="Flying bee" className="absolute bottom-12 left-12 w-12 h-12 animate-pulse" />
+
+>>>>>>> 8440931f229cb4d085bb36ef4c0829c4d3fe6009
       <div className="max-w-xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-6 text-yellow-900">Review a Study Spot</h1>
         
