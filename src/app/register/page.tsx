@@ -4,12 +4,7 @@ import React from 'react';
 import './Register.css';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-<<<<<<< HEAD
-=======
-import logo from '../../images/logo.png';
->>>>>>> 8440931f229cb4d085bb36ef4c0829c4d3fe6009
 import beeLeft from '../../assets/TanBee (1).png';
-import beeRight from '../../images/bee-right.png';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
