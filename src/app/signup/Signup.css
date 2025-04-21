@@ -69,6 +69,11 @@
     display: flex;
   }
 
+  input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px #ffd34e inset;
+    -webkit-text-fill-color: #000;
+  }
+  
   .password-container img {
     margin-left: -30px; 
     margin-top: 10px; 
