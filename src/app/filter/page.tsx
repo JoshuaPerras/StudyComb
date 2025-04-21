@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import './Filter.css';
+import Link from 'next/link';
 
 interface StudySpot {
   _id: string;
@@ -109,14 +110,15 @@ export default function FilterPage() {
 
       <div className="grid-container">
         {filteredSpots.map((spot) => (
-          <div key={spot._id} className="square">
+          <Link href={`/details/${spot._id}`} key={spot._id} className="square-link">
+          <div className="square">
             <img 
               src={spot.url} 
               alt={`${spot.name} Study Spot`} 
               className="image" 
             />
             <h2 className="spot-name">{spot.name}</h2>
-
+        
             <div className="tags">
               {spot.tags.map((tag, i) => (
                 <span 
@@ -128,6 +130,7 @@ export default function FilterPage() {
               ))}
             </div>
           </div>
+        </Link>        
         ))}
         {filteredSpots.length === 0 && !loading && (
           <p className="no-results">No study spots match your selected filters.</p>
