@@ -4,7 +4,7 @@ import './Profile.css';
 import Image from 'next/image';
 import Hexagon from '@/components/Hexagon'
 import beePfp from '@/assets/pfpBee.png'
-import { useSession } from "next-auth/react"
+import { useSession } from 'next-auth/react';
 
 
 export default function Profile() {

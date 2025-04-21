@@ -4,7 +4,7 @@ import "./globals.css";
 import { auth } from "../auth";
 import Header from "@/components/Header";
 import Image from "next/image";
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react";
 
 
 const geistSans = Geist({
@@ -47,7 +47,7 @@ export default async function RootLayout({
                 height={60}
                 className="homeBee"
                 />
-        <Header session={session}></Header>
+        <Header session={session}/>
         {children}
         </SessionProvider>
       </body>
