@@ -1,7 +1,26 @@
 'use client';
-
+import "./addRoom.css"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+const AVAILABLE_TAGS = [
+  "Quiet",
+  "Peaceful",
+  "Independent Study",
+  "Group Study",
+  "Academic Building",
+  "Science",
+  "Humanities",
+  "Research",
+  "Casual",
+  "Light Study",
+  "Noisy",
+  "Library",
+  "Less Crowded",
+  "Computers",
+  "Coffee",
+  "Lounges",
+  "Dining"
+];
 
 export default function ItemAddForm() {
   const [formData, setFormData] = useState({
@@ -10,7 +29,9 @@ export default function ItemAddForm() {
     rating: 0,
     description: '',
     url: '',
+    tags: [] as string[]
   });
+
 
   const router = useRouter();
 
@@ -22,11 +43,23 @@ export default function ItemAddForm() {
     }));
   };
 
+  const toggleTag = (tag: string) => {
+    setFormData(prev => ({
+      ...prev,
+      tags: prev.tags.includes(tag)
+        ? prev.tags.filter(t => t !== tag) // remove if already selected
+        : [...prev.tags, tag] // add if not selected
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.rating > 5) {
       formData.rating = 5;
+    } else if (formData.rating < 0) {
+      formData.rating = 0;
     }
+    console.log("Submitting room with data:", formData);
     try {
       const response = await fetch('/api/studyrooms', {
         method: 'POST',
@@ -40,65 +73,120 @@ export default function ItemAddForm() {
         throw new Error('Network response was not ok');
       }
 
-      setFormData({ name: '', rating: 0, description: '',location: '', url: '' });
-      router.push('/');
+      setFormData({ name: '', rating: 0, description: '',location: '', url: '', tags: []});
+      router.push('/filter');
     } catch (error) {
-      console.error('Error in CreateItem!', error);
+      console.error('Error in CreateRoom!', error);
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-10 px-4">
-         <h2 className="text-lg font-semibold mt-2">Add new Room</h2>
-      <div className={`border border-gray-300 shadow-sm rounded-lg p-4 bg-white`}>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Name"
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Description"
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-          <textarea
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            placeholder="Adress"
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-          <input
-            name="rating"
-            type="number"
-            value={formData.rating}
-            onChange={handleChange}
-            placeholder="Rating 1-5"
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-          <input
-            name="url"
-            type="url"
-            value={formData.url}
-            onChange={handleChange}
-            placeholder="Image URL"
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
+    <div className="newRoom">
+         <h2 className="headText">Add New Room</h2>
+      <div className="card">
+        <form onSubmit={handleSubmit} className="space-y-4 formArea">
+          <div className="split">
+            <div className="leftSide">
+              <div className="input-group">
+                <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
+                  Study Room Name
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  required
+                  className="input"
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
+                  Building Address
+                </label>
+                <input
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder="Address"
+                  required
+                  className="input"
+                />
+              </div>
+              
+              <div className="input-group">
+                <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
+                  Rating 0-5
+                </label>
+                <input
+                  name="rating"
+                  type="number"
+                  value={formData.rating}
+                  onChange={handleChange}
+                  placeholder="Rating 0-5"
+                  required
+                  className="input"
+                />
+              </div>
+
+              <div className="input-group">
+                <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
+                  Description
+                </label>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  placeholder="Description"
+                  required
+                  className="input"
+                />
+              </div>
+
+              
+              <div className="input-group">
+                <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
+                  Image URL
+                </label>
+                <input
+                  name="url"
+                  type="url"
+                  value={formData.url}
+                  onChange={handleChange}
+                  placeholder="Image URL"
+                  required
+                  className="input"
+                />
+              </div>
+            </div>
+            
+            <div className="input-group tag">
+              <label className="mb-1 text-sm font-medium text-gray-700">
+                Select Tags
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {AVAILABLE_TAGS.map(tag => (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => toggleTag(tag)}
+                    className={`tag-button ${
+                      formData.tags.includes(tag) ? 'tag-selected' : ''
+                    }`}
+                    >
+                  {tag}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          
           <div className="flex justify-end">
             <button
               type="submit"
-              className="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800 mt-4"
+              className="register-button"
             >
               Add Item
             </button>

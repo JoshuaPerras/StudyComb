@@ -11,7 +11,11 @@ export default function Home() {
         <h4 className="subheading">Bee Studious</h4>
         <div className="splashButtons">
         <a href="/filter"><button className="find">Find</button></a>
+<<<<<<< HEAD
         <a href="/review"><button className="rate">Rate</button></a>
+=======
+        <button className="rate"><Link href="/addRoom">Add</Link></button>
+>>>>>>> 31db86d3cbcf29f41f9a64b5f1243d8e554d7fee
         </div>
         <Image
             src="/TanBee.png"

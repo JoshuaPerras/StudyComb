@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
-  const {name, location, rating, description, url } = await request.json();
+  const {name, location, rating, description, url, tags } = await request.json();
   await connectMongoDB();
-  await Room.create({name, location, rating, description, url });
+  await Room.create({name, location, rating, description, url, tags});
   return NextResponse.json({ message: "Room added successfully" }, { status: 201 });
 }
 

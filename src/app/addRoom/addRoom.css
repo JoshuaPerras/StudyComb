@@ -1,4 +1,4 @@
-.signUp {
+.newRoom {
     height: 92vh;
     background: rgb(255,237,177);
     background: linear-gradient(180deg, rgba(255,237,177,1) 25%, rgba(255,211,78,1) 63%, rgba(212,143,4,1) 100%);
@@ -8,48 +8,41 @@
     align-items: center;
 }
 
-.register-form-card h1 {
-    font-size: 32px;
-    font-weight: 500;
-    margin-bottom: 10px;
-    color: #105B63;
-  }
+.tag {
+    width: 50%;
+}
 
-.register-container {
+.leftSide {
+    width: 50%;
+}
+
+.split {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
     justify-content: center;
-    align-items: center;
-  }
+}
 
-  .register-form-card {
+.card {
     background-color: #fef8c7;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 300px;
+    width: 80%;
     text-align: center;
-  }
+}
 
-  input:-webkit-autofill {
-    box-shadow: 0 0 0px 1000px #ffd34e inset;
-    -webkit-text-fill-color: #000;
-  }
-  
-
-  .input-group {
-    margin-bottom: 25px;
+.headText {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #105B63;
+}
+.input-group {
+    margin-bottom: 10px;
     text-align: left;
   }
 
-  .input-group label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #105B63;
-  }
-
-  .input-group input {
+.input-group .input {
     width: 100%;
     padding: 10px;
     border: 1px solid #555555;
@@ -58,24 +51,38 @@
     color: #000000; 
     font-size: 14px;
   }
-  .password-container {
-    position: relative;
-  }
 
-  .textImgDiv {
-    display: flex;
+  input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px #ffd34e inset;
+    -webkit-text-fill-color: #000;
   }
-
-  .password-container img {
-    margin-left: -30px; 
-    margin-top: 10px; 
+  
+  .tag-button {
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    background-color: #e5e7eb; /* gray-200 */
+    color: #374151; /* gray-700 */
+    font-size: 0.875rem;
+    border: none;
     cursor: pointer;
-    width: 25px;
-    height: 25px;
-}
+    transition: all 0.2s;
+  }
+  
+  .tag-button:hover {
+    background-color: #d1d5db; /* gray-300 */
+  }
+  
+  .tag-selected {
+    background-color: #267179; /* indigo-600 */
+    color: black;
+  }
 
-  .register-button {
-    width: 100%;
+  .tag-selected:hover {
+    background-color: #105B63;
+  }
+
+.register-button {
+    width: 30%;
     padding: 10px;
     background-color: #BD4932;
     color: #0d0d0d;
@@ -90,14 +97,3 @@
   .register-button:hover {
     background-color: #ffd34e;
   }
-
-  .login-link {
-    color: #000000;
-    text-decoration: none;
-  }
-
-  .login-link:hover {
-    text-decoration: underline;
-    color: #BD4932;
-  }
-

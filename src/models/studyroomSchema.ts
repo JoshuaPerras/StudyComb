@@ -7,12 +7,14 @@ interface IRoom extends Document {
   rating?: number;
   description?: string;
   url?: string;
+  tags?: string[];
 }
 
 const roomSchema = new Schema<IRoom>({
   name: {
     type: String,
     required: true,
+    unique: true,
   },
   location: {
     type: String,
@@ -26,8 +28,14 @@ const roomSchema = new Schema<IRoom>({
   url: {
     type: String,
     required: false,
+    unique: true,
   },
+  tags: {
+    type: [String],
+    default: []
+  }
+  
 }, { collection: "studyRooms" });
 
-const Item: Model<IRoom> = mongoose.models.Item || mongoose.model<IRoom>("Room", roomSchema);
+const Item: Model<IRoom> = mongoose.models.Room || mongoose.model<IRoom>("Room", roomSchema);
 export default Item;
