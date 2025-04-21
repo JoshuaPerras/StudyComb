@@ -22,9 +22,7 @@ const middleware = async (request: NextRequest) => {
 
 export const config = {
   matcher: [
-    "/create-item/:path*",
-    "/update-item/:path*",
-    "/delete-item/:path*",
+    "/addRoom/:path*",
   ],
 };
 
