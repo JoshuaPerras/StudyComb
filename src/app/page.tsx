@@ -11,7 +11,7 @@ export default function Home() {
         <h4 className="subheading">Bee Studious</h4>
         <div className="splashButtons">
         <a href="/filter"><button className="find">Find</button></a>
-        <a href="/review"><button className="rate">Rate</button></a>
+        <a href="/addRoom"><button className="rate">Add</button></a>
         </div>
         <Image
             src="/TanBee.png"
@@ -54,7 +54,7 @@ export default function Home() {
             height={150}
             /> 
         </div>
-        <button className="spinButton">Spin!</button>
+        <button className="spinButton"><a href="/review">Rate!</a></button>
 
       </div>
     </section>

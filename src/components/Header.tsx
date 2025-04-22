@@ -37,13 +37,13 @@ const Header = ({session}: NavbarProps) => {
             
             <div className="menu">
                 <div className='text'><Link href='/' >Home</Link></div>
-                <div className='text'><Link href='/filter' >filter</Link></div>
+                <div className='text'><Link href='/filter' >Filter</Link></div>
 
                 {
                     isLoggedIn && session?.user ? (
                         <>
                             <div className='text'><Link href='/profile'>Profile</Link></div>
-                            <div className='text'><Link href='/map'>map</Link></div>
+                            <div className='text'><Link href='/map'>Map</Link></div>
                             <button onClick={handleLogout}>
                             <div className='text'><Link href='/' >Logout</Link></div>
                             </button>

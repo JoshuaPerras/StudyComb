@@ -43,6 +43,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
+    color:  	#41211a;
     font-size: 1rem;
     border-bottom: 1px solid rgba(0,0,0,0.05);
   }

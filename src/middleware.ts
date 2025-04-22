@@ -23,6 +23,7 @@ const middleware = async (request: NextRequest) => {
 export const config = {
   matcher: [
     "/addRoom/:path*",
+    "/review/:path*"
   ],
 };
 
