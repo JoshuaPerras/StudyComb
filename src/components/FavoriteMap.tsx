@@ -3,11 +3,13 @@ import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from '@react-google-map
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 
+// default map center (uga area)
 const defaultCenter = {
   lat: 33.9425,
   lng: -83.3724,
 };
 
+// custom map styling to hide certain map features
 const mapStyles = [
   {
     featureType: 'poi',
@@ -25,21 +27,32 @@ const mapStyles = [
 ];
 
 export default function FavoriteMap() {
+  // get current session and auth status
   const { data: session, status } = useSession();
+
+  // state for fetched favorite locations
   const [favoriteLocations, setFavoriteLocations] = useState([]);
+  
+  // state for which marker is selected (for infowindow)
   const [selectedMarker, setSelectedMarker] = useState(null);
+  
+  // state for loading and error feedback
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   
+  // load google maps script using api key from env
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
 
   useEffect(() => {
     async function fetchFavorites() {
+      // only fetch if user is authenticated
       if (status === 'authenticated' && session?.user?.name) {
         try {
           setIsLoading(true);
+
+          // call api route to get user's favorites
           const response = await fetch(`/api/favorites/locations?username=${encodeURIComponent(session.user.name)}`);
          
           if (!response.ok) {
@@ -48,6 +61,7 @@ export default function FavoriteMap() {
          
           const data = await response.json();
           
+          // validate and save locations
           if (data && data.locations && Array.isArray(data.locations)) {
             setFavoriteLocations(data.locations);
           } else {
@@ -61,21 +75,25 @@ export default function FavoriteMap() {
           setIsLoading(false);
         }
       } else if (status !== 'loading') {
+        // if user is not logged in, stop loading state
         setIsLoading(false);
       }
     }
-   
+
     fetchFavorites();
   }, [session, status]);
 
+  // loading state for maps library or auth
   if (!isLoaded || (status === 'loading')) {
     return <div className="loading">Loading map...</div>;
   }
   
+  // show message if user is not logged in
   if (status === 'unauthenticated') {
     return <div className="not-logged-in">Please log in to see your favorite study spots</div>;
   }
   
+  // show error message if there was an issue
   if (error) {
     return <div className="error">{error}</div>;
   }
@@ -83,12 +101,15 @@ export default function FavoriteMap() {
   return (
     <div className="mapArea">
       {isLoading ? (
+        // show loading while fetching favorites
         <div className="loading">Loading your favorite study spots...</div>
       ) : favoriteLocations.length === 0 ? (
+        // no favorites message
         <div className="no-favorites">
           You haven't added any study spots to your favorites yet.
         </div>
       ) : (
+        // render map with markers
         <GoogleMap
           center={favoriteLocations.length > 0 ?
             { lat: Number(favoriteLocations[0].lat), lng: Number(favoriteLocations[0].lng) } :
@@ -111,6 +132,8 @@ export default function FavoriteMap() {
               onClick={() => setSelectedMarker(loc)}
             />
           ))}
+
+          {/* show info window if marker is selected */}
           {selectedMarker && (
             <InfoWindow
               position={{ lat: Number(selectedMarker.lat), lng: Number(selectedMarker.lng) }}

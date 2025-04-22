@@ -8,6 +8,7 @@ export interface IUser extends Document {
     favorites: mongoose.Types.ObjectId[];
 }
 
+// user has un, email, pass, favorites array of room ids that is linked to rooms collection
 const userSchema = new Schema<IUser>({
     username: {type: String, required: true, unique: true},
     email: {type: String, required: true, unique: true},
