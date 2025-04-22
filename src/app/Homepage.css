@@ -35,12 +35,17 @@
     padding: 10px 40px;
     background-color: #16707a;
     border-radius: 10px;
+    color: whitesmoke;
+
 }
 .find {
     background-color: #bd4932;
 }
 .find:hover {
     background-color: #851e0a;
+}
+.rate:hover, .spinButton:hover {
+    background-color:  	#05484e;
 }
 .spinButton {
     padding: 10px 30px;

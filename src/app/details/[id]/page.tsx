@@ -1,5 +1,11 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import '../Details.css';
+import FavoriteButton from '@/components/FavoriteButton';
+
+
+
+
+
 
 // array setup
 type StudyRoom = {
@@ -57,21 +63,27 @@ export default async function Details(props: PageProps) {
         <div className="imageCard">
           <img src={studyRoom.url} alt={studyRoom.name} />
         </div>
+        <div className="starFavorite">
+          <div className="rating-container">
+              {Array.from({ length: 5 }, (_, i) => (
+              <span key={i}>
+                  {i < Math.round(studyRoom.rating) ? '★' : '☆'}
+              </span>
+              ))}
+          </div>
+          <FavoriteButton studyRoomId={studyRoom._id} />
 
-        <div className="rating-container">
-            {Array.from({ length: 5 }, (_, i) => (
-            <span key={i}>
-                {i < Math.round(studyRoom.rating) ? '★' : '☆'}
-            </span>
-            ))}
         </div>
 
         <div className="location">
           <h4>{studyRoom.location}</h4>
         </div>
 
-        <p>{studyRoom.description}</p>
+        <p className="desc">{studyRoom.description}</p>
       </section>
     </div>
   );
 }
+
+
+
