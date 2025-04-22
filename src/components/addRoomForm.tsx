@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function ItemAddForm() {
+export default function ItemAddForm() { // create new form
   const [formData, setFormData] = useState({
     owner: 0,
     title: '',
@@ -25,7 +25,7 @@ export default function ItemAddForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/items', {
+      const response = await fetch('/api/items', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
