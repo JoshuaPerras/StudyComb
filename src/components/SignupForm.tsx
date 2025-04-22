@@ -8,6 +8,8 @@ import Link from 'next/link';
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState("/CloseHoney.png");
   const router = useRouter();
+  
+  // handle password visibility on image click 
   const togglePasswordVisibility = () => {
     setShowPassword(showPassword === "/CloseHoney.png" ? "/OpenHoney.png" : "/CloseHoney.png");
 }
@@ -17,7 +19,7 @@ const SignupForm = () => {
 
     try {
       const formData = new FormData(event.currentTarget);
-
+      // hold data into variables
       const username = formData.get("username") as string | null;
       const email = formData.get("email") as string | null;
       const password = formData.get("password") as string | null;
@@ -26,6 +28,7 @@ const SignupForm = () => {
         throw new Error("All fields are required.");
       }
 
+      // send post request
       const response = await fetch(`/api/signup`, {
         method: "POST",
         headers: {
@@ -58,6 +61,7 @@ const SignupForm = () => {
             onSubmit={handleSubmit}
             className="register-form"
           >
+            {/* Input fields */}
             <div className="input-group">
               <label htmlFor="username" className="mb-1 text-sm font-medium text-gray-700">
                 Username
@@ -86,6 +90,7 @@ const SignupForm = () => {
               />
             </div>
 
+            {/* Password container to handle image formatting */}
             <div className="input-group password-container">
               <label htmlFor="password" className="mb-1 text-sm font-medium text-gray-700">
                 Password
@@ -117,6 +122,7 @@ const SignupForm = () => {
               Signup
             </button>
           </form>
+          {/* Link to login */}
           <p className="my-3 text-center">
             Already have an account?
             <Link href="/login" className="login-link">Login</Link>

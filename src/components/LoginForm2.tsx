@@ -3,7 +3,6 @@ import Link from "next/link";
 import { doCredentialLogin } from "../app/actions";
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import connectMongoDB from "../../config/mongodb";
 import Image from "next/image";
 
 
@@ -19,10 +18,12 @@ const LoginForm2 = () => {
     event.preventDefault();
 
     try {
+      // Save data to variable
       const formData = new FormData(event.currentTarget);
-
+      // attmept login
       const response = await doCredentialLogin(formData);
 
+      // handle response
       if (response?.error) {
         console.error(response.error);
         setError(response.error.message || "An error occurred");
@@ -44,6 +45,7 @@ const LoginForm2 = () => {
           onSubmit={onSubmit}
           className="register-form"
         >
+          {/* Input fields  */}
           <div className="input-group">
             <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
               Email Address
@@ -58,6 +60,7 @@ const LoginForm2 = () => {
             />
           </div>
 
+          {/* Password container */}
           <div className="input-group password-container">
             <label htmlFor="password" className="mb-1 text-sm font-medium text-gray-700">
               Password
@@ -90,6 +93,7 @@ const LoginForm2 = () => {
           </button>
         </form>
 
+        {/* Link back to signup page */}
         <p className="my-3 text-center">
           Don't have an account?
           <Link href="signup" className="login-link">Signup</Link>

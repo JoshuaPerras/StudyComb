@@ -1,5 +1,5 @@
-section {
-    height: 92vh;
+.favMap {
+    min-height: 92vh;
     background: rgb(255,237,177);
     background: linear-gradient(180deg, rgba(255,237,177,1) 25%, rgba(255,211,78,1) 63%, rgba(212,143,4,1) 100%);
     display: flex;

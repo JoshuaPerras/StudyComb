@@ -34,21 +34,21 @@ export default function Home() {
         <div className="spinCards">
           <Image
             src="/randomCardDefault.png"
-            className="card"
+            className="homeCard"
             alt="image of card"
             width={200}
             height={150}
             /> 
           <Image
             src="/randomCardDefault.png"
-            className="card"
+            className="homeCard"
             alt="image of card"
             width={200}
             height={150}
             /> 
           <Image
             src="/randomCardDefault.png"
-            className="card"
+            className="homeCard"
             alt="image of card"
             width={200}
             height={150}

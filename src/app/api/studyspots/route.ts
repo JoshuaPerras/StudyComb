@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
+// get handle for study spots
 export async function GET() {
   const uri = process.env.MONGODB_URI;
   

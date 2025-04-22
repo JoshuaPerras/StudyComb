@@ -38,7 +38,7 @@ const Header = ({session}: NavbarProps) => {
             <div className="menu">
                 <div className='text'><Link href='/' >Home</Link></div>
                 <div className='text'><Link href='/filter' >Filter</Link></div>
-
+                {/* Added links for auth user */}
                 {
                     isLoggedIn && session?.user ? (
                         <>

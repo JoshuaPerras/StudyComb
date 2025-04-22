@@ -23,6 +23,7 @@ const AVAILABLE_TAGS = [
 ];
 
 export default function ItemAddForm() {
+  // initilize form data
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -35,6 +36,7 @@ export default function ItemAddForm() {
 
   const router = useRouter();
 
+  // update form data
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -43,6 +45,7 @@ export default function ItemAddForm() {
     }));
   };
 
+  // handle tag press
   const toggleTag = (tag: string) => {
     setFormData(prev => ({
       ...prev,
@@ -85,8 +88,10 @@ export default function ItemAddForm() {
          <h2 className="headText">Add New Room</h2>
       <div className="card">
         <form onSubmit={handleSubmit} className="space-y-4 formArea">
+          {/* Div nest for formatting */}
           <div className="split">
             <div className="leftSide">
+              {/* Input side */}
               <div className="input-group">
                 <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
                   Study Room Name
@@ -160,12 +165,13 @@ export default function ItemAddForm() {
                 />
               </div>
             </div>
-            
+            {/* Tag side */}
             <div className="input-group tag">
               <label className="mb-1 text-sm font-medium text-gray-700">
                 Select Tags
               </label>
               <div className="flex flex-wrap gap-2">
+                {/* Show tags in a clean way */}
                 {AVAILABLE_TAGS.map(tag => (
                   <button
                     key={tag}
@@ -182,7 +188,7 @@ export default function ItemAddForm() {
             </div>
           </div>
           
-          
+          {/* Add item button */}
           <div className="flex justify-end">
             <button
               type="submit"

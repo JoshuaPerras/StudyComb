@@ -4,7 +4,7 @@ import User from "@/models/UserSchema";
 import bcrypt from "bcryptjs";
 import connectMongoDB from "../../../../config/mongodb";
 
-
+// post handle for signup
 export const POST = async (request: { json: () => PromiseLike<{ username: any; email: any; password: any; }> | { username: any; email: any; password: any; }; }) => {
   const {username, email, password} = await request.json();
 
