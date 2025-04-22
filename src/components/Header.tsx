@@ -6,6 +6,7 @@ import { Session } from 'next-auth';
 import { doLogout } from "../app/actions/index";
 
 
+
 interface Session {
     user?: {
       name?: string;
@@ -36,12 +37,14 @@ const Header = ({session}: NavbarProps) => {
         <div className="head">
             
             <div className="menu">
-                <div className='text'><Link href='/' >Home</Link></div>
-                <div className='text'><Link href='/filter' >Filter</Link></div>
+
                 {/* Added links for auth user */}
                 {
                     isLoggedIn && session?.user ? (
                         <>
+                            <div className='text'>Welcome, {session.user?.name} </div>
+                            <div className='text'><Link href='/' >Home</Link></div>
+                            <div className='text'><Link href='/filter' >Filter</Link></div>
                             <div className='text'><Link href='/profile'>Profile</Link></div>
                             <div className='text'><Link href='/map'>Map</Link></div>
                             <button onClick={handleLogout}>
@@ -49,7 +52,13 @@ const Header = ({session}: NavbarProps) => {
                             </button>
                         </>
                     ) : (
+                      <>
+                        <div className='text'><Link href='/' >Home</Link></div>
+                        <div className='text'><Link href='/filter' >Filter</Link></div>
                         <button><div className='text'><Link href='/signup' >Sign-up</Link></div></button>
+                        <div className='text'><Link href='/login' >login</Link></div>
+
+                      </>
                     )
                 }
             </div>

@@ -12,8 +12,8 @@ export default function Home() {
 
         {/* navigation buttons to filter and add room pages */}
         <div className="splashButtons">
-          <a href="/filter"><button className="find">Find</button></a>
-          <a href="/addRoom"><button className="rate">Add</button></a>
+        <Link href="/filter"><button className="find">Find</button></Link>
+        <Link href="/addRoom"><button className="rate">Add</button></Link>
         </div>
 
         {/* decorative bee images */}
@@ -67,7 +67,7 @@ export default function Home() {
 
         {/* button linking to review page */}
         <button className="spinButton">
-          <a href="/review">Rate!</a>
+          <Link href="/review">Rate!</Link>
         </button>
       </div>
     </section>
