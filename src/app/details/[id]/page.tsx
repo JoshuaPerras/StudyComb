@@ -2,11 +2,6 @@ import { MongoClient, ObjectId } from 'mongodb';
 import '../Details.css';
 import FavoriteButton from '@/components/FavoriteButton';
 
-
-
-
-
-
 // array setup
 type StudyRoom = {
   _id: string;

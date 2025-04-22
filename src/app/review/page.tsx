@@ -17,8 +17,6 @@ interface Review {
   comment: string;
   date: string;
 }
-
-
   
 export default function ReviewPage() {
   // Example reviews
