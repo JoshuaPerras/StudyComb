@@ -18,7 +18,10 @@ interface Review {
   date: string;
 }
 
+
+  
 export default function ReviewPage() {
+  // Example reviews
   const [reviews, setReviews] = useState<Review[]>([
     {
       id: 1,
@@ -40,6 +43,86 @@ export default function ReviewPage() {
       comment: 'Okay for casual studying if you like background noise.',
       date: '2025-04-18',
     },
+    {
+      id: 3,
+      location: 'Science Library (Floors 2-4)',
+      rating: 5,
+      noise: 'Very Quiet',
+      wifi: 'Strong',
+      tags: ['Quiet', 'Science', 'Library'],
+      comment: 'Great for solo or quiet group studying. Cozy upstairs “study cells” are my go-to.',
+      date: '2025-04-07',
+    },
+    {
+      id: 4,
+      location: 'Main Library',
+      rating: 4,
+      noise: 'Moderate',
+      wifi: 'Strong',
+      tags: ['Quiet', 'Group', 'Coffee Nearby'],
+      comment: 'Nice employees, varied study areas, and there’s even a coffee shop inside.',
+      date: '2025-04-14',
+    },
+    {
+      id: 5,
+      location: 'Tate Student Center',
+      rating: 4,
+      noise: 'Moderate',
+      wifi: 'Okay',
+      tags: ['Casual', 'Group', 'Lounge'],
+      comment: '24/7 access and lots of study rooms, great for when you want something relaxed.',
+      date: '2025-04-02',
+    },
+    {
+      id: 6,
+      location: 'Snelling Dining Commons',
+      rating: 3,
+      noise: 'Loud',
+      wifi: 'Okay',
+      tags: ['Food', 'Late Night', 'Casual'],
+      comment: 'Good for late-night work with food nearby. Not super quiet, but very comfy.',
+      date: '2025-04-19',
+    },
+    {
+      id: 7,
+      location: 'Aderhold Hall',
+      rating: 5,
+      noise: 'Quiet',
+      wifi: 'Strong',
+      tags: ['Education', 'Quiet', 'Cozy'],
+      comment: 'Clean and welcoming. Cozy rooms with helpful staff—it’s a hidden gem.',
+      date: '2025-04-09',
+    },
+    {
+      id: 8,
+      location: 'Science Learning Center',
+      rating: 4,
+      noise: 'Quiet',
+      wifi: 'Strong',
+      tags: ['Science', 'Labs', 'Quiet'],
+      comment: 'Great study space and labs! Wish it stayed open a little later though.',
+      date: '2025-04-04',
+    },
+    {
+      id: 9,
+      location: 'Geography Building',
+      rating: 4,
+      noise: 'Quiet',
+      wifi: 'Okay',
+      tags: ['Quiet', 'Small', 'Solo'],
+      comment: 'A peaceful and less crowded spot for focused work. The seating is limited, but it’s perfect for solo studying.',
+      date: '2025-04-11',
+    },
+    {
+      id: 10,
+      location: 'Barrow Hall Outdoor Benches',
+      rating: 3,
+      noise: 'Moderate',
+      wifi: 'None',
+      tags: ['Outdoor', 'Relaxed', 'Study Break'],
+      comment: 'Nice if the weather is good, but be prepared for occasional distractions from foot traffic.',
+      date: '2025-04-16',
+    }        
   ]);
   
   const [form, setForm] = useState({
@@ -52,17 +135,43 @@ export default function ReviewPage() {
   });
 
   const [availableTags] = useState([
-    'Quiet', 'Study Room', 'Computer', 'Group', 'Lounge', 'Multi-leveled', 'Loud'
+    'Quiet', 'Study Room', 'Computers', 'Group', 'Lounges', 'Multi-leveled', 'Loud', 'Peaceful', 'Independent Study', 
+    'Group Study', 'Academic Building', 'Science', 'Humanities', 'Research', 'Casual', 'Light Study', 'Noisy',
+    'Library', 'Less Crowded', 'Coffee', 'Dining'
   ]);
   const [availableLocations] = useState([
     'Bolton Dining Hall',
     'Miller Learning Center',
-    'Tate Center'
+    'Tate Center',
+    'McBay Science Library',
+    'Main Library', 
+    'Park Hall',
+    'Dawson Hall',
+    'Geography Geology',
+    'Boyd Research',
+    'Jittery Joes Cafe',
+    'Plant Biology',
+    'Physics Building',
+    'Snelling Dining',
+    'Interdisciplinary STEM Research Building 2',
+    'Science Learning Center',
+    'Oglethorpe Dining Hall',
+    'Village Summit Dining Hall',
+    'Sanford Hall',
+    'Brooks Hall',
+    'Cedar Street Building B',
+    'Marine Sciences',
+    'Vet Med Building',
+    'Aderhold Hall',
+    'Food Science Building'
   ]);
   
   const [locationFilter, setLocationFilter] = useState<string | null>(null);
   const [filterTags, setFilterTags] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showAllLocations, setShowAllLocations] = useState(false);
+  const [filterLocations, setFilterLocations] = useState<string[]>([]);
+  const [showAllTags, setShowAllTags] = useState(false);
   const reviewsPerPage = 5;
 
   // Handle form submission
@@ -128,7 +237,6 @@ export default function ReviewPage() {
     <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-yellow-200 py-12 px-4">
       {/* Bee images */}
       <Image src={beeFly1} alt="Flying bee" className="absolute bottom-12 left-12 w-12 h-12 animate-pulse" />
-
 
       <div className="max-w-xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-6 text-yellow-900">Review a Study Spot</h1>
@@ -196,11 +304,6 @@ export default function ReviewPage() {
           </Button>
         </form>
 
-        {/* Doing some experiments, dont mind */}
-        {/* Doing some experiments, dont mind */}
-        {/* Doing some experiments, dont mind */}
-        {/* Doing some experiments, dont mind */}
-
         {/* Making the filtering a little prettier */}
         <div className="mt-10">
           <h2 className="text-2xl font-bold mb-4">Filter Reviews</h2>
@@ -217,38 +320,58 @@ export default function ReviewPage() {
               >
                 All
               </button>
-              {availableLocations.map(loc => (
+              {(showAllLocations ? availableLocations : availableLocations.slice(0, 5)).map(loc => (
                 <button
                   key={loc}
                   onClick={() => {
-                    setLocationFilter(loc);
-                    setCurrentPage(1);
-                  }}
-                  className={`px-3 py-1 rounded-full border text-sm ${locationFilter === loc ? 'bg-yellow-400 border-yellow-600' : 'bg-gray-200 border-gray-400'}`}
-                >
-                  {loc}
-                </button>
-              ))}
+                   setLocationFilter(loc);
+                   setCurrentPage(1);
+                 }}
+                className={`px-3 py-1 rounded-full border text-sm ${locationFilter === loc ? 'bg-yellow-400 border-yellow-600' : 'bg-gray-200 border-gray-400'}`}
+              >
+               {loc}
+             </button>
+            ))}
+
+          {availableLocations.length > 5 && (
+           <button
+             onClick={() => setShowAllLocations(!showAllLocations)}
+             className="px-3 py-1 rounded-full border text-sm bg-yellow-200 border-yellow-600 text-yellow-800"
+             >
+            {showAllLocations ? 'Show less' : 'Show more'}
+             </button>
+          )}
+
             </div>
           </div>
 
           <div className="mb-6">
             <h3 className="text-sm font-semibold mb-2">By Tag:</h3>
             <div className="flex flex-wrap gap-2">
-              {availableTags.map(tag => (
-                <button
-                  key={tag}
-                  onClick={() => {
-                    setFilterTags(prev =>
-                      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-                    );
-                    setCurrentPage(1);
-                  }}
-                  className={`px-3 py-1 rounded-full border text-sm ${filterTags.includes(tag) ? 'bg-yellow-400 border-yellow-600' : 'bg-gray-200 border-gray-400'}`}
-                >
-                  {tag}
-                </button>
-              ))}
+            {(showAllTags ? availableTags : availableTags.slice(0, 6)).map(tag => (
+              <button
+                key={tag}
+                onClick={() => {
+                  setFilterTags(prev =>
+                    prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+                  );
+                  setCurrentPage(1);
+                }}
+                className={`px-3 py-1 rounded-full border text-sm ${filterTags.includes(tag) ? 'bg-yellow-400 border-yellow-600' : 'bg-gray-200 border-gray-400'}`}
+              >
+                {tag}
+              </button>
+            ))}
+
+            {availableTags.length > 6 && (
+              <button
+                onClick={() => setShowAllTags(!showAllTags)}
+                className="px-3 py-1 rounded-full border text-sm bg-yellow-200 border-yellow-600 text-yellow-800"
+              >
+                {showAllTags ? 'Show less' : 'Show more'}
+              </button>
+            )}
+
             </div>
           </div>
         </div>
