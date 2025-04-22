@@ -44,6 +44,9 @@
 .find:hover {
     background-color: #851e0a;
 }
+.rate:hover, .spinButton:hover {
+    background-color:  	#05484e;
+}
 .spinButton {
     padding: 10px 30px;
 }

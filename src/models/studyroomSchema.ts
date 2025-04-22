@@ -1,6 +1,5 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
-// Mongoose provides properties such as the _id in Document, we extend this
 interface IRoom extends Document {
   name: string;
   location?: string;
@@ -8,6 +7,10 @@ interface IRoom extends Document {
   description?: string;
   url?: string;
   tags?: string[];
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }
 
 const roomSchema = new Schema<IRoom>({
@@ -33,6 +36,16 @@ const roomSchema = new Schema<IRoom>({
   tags: {
     type: [String],
     default: []
+  },
+  coordinates: {
+    lat: {
+      type: Number,
+      default: 33.9425 
+    },
+    lng: {
+      type: Number,
+      default: -83.3724 
+    }
   }
   
 }, { collection: "studyRooms" });
