@@ -1,3 +1,4 @@
+/* general ui layout */
 .profile-container {
     background: linear-gradient(to bottom right, #ffe68a, #f9b529);
     min-height: 92vh;
@@ -8,9 +9,8 @@
     position: relative;
     font-family: 'Segoe UI', sans-serif;
   }
-
-
   
+  /* profile header and image*/
   .profile-header .avatar {
     width: 100px;
     height: 100px;
@@ -19,6 +19,7 @@
     z-index: 5;
   }
   
+  /* username */
   .name {
     color: #007a73;
     font-weight: 600;
@@ -27,6 +28,7 @@
     z-index: 5;
   }
   
+  /* Entire profile box */
   .profile-card {
     background: #fff3cd;
     border-radius: 25px;
@@ -39,6 +41,7 @@
     z-index: 5;
   }
   
+  /* Each profile info */
   .info-row {
     display: flex;
     justify-content: space-between;
@@ -52,6 +55,7 @@
     font-weight: bold;
   }
   
+  /* Decorative bees*/
   .bee {
     position: absolute;
     margin-right: 0;
@@ -60,7 +64,6 @@
     z-index: 1;
 }
   
-  
   .Lbee {
     position: absolute;
     margin-right: 79%;
@@ -68,6 +71,8 @@
     margin-top: 10%;
     z-index: 1;
 }
+
+  /* logout button */
   .logout-button {
     background-color: #d9534f;
     color: white;

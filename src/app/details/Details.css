@@ -1,4 +1,4 @@
-/* GENERAL RESET + PAGE BACKGROUND */
+/* General layout and page layout*/
 body, html {
     margin: 0;
     padding: 0;
@@ -13,6 +13,7 @@ body, html {
     align-items: center;
   }
 
+  /*header*/
   .header {
     width: 100%;
     display: flex;
@@ -23,6 +24,7 @@ body, html {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   
+  /*logo*/
   .logo {
     height: 40px;
   }
@@ -42,6 +44,7 @@ body, html {
     margin-bottom: 20px;
   }
   
+  /*image*/
   .imageCard {
     background-color: #fff8e3;
     border: 10px solid #a87000;
@@ -63,6 +66,7 @@ body, html {
     border-radius: 10px;
   }
   
+  /* rating*/
   .rating-container {
     background-color: white;
     border-radius: 999px;
@@ -100,10 +104,12 @@ body, html {
     color: #f4c150; 
   }
   
+  /* address*/
   .location {
     font-family: var(--font-geist-mono), sans-serif;
   }
   
+  /*description*/
   .details p {
     font-size: 1rem;
     line-height: 1.5;
@@ -112,28 +118,6 @@ body, html {
     margin: 0 auto 20px auto;
     font-family: var(--font-geist-sans), sans-serif;
   }
-  
- 
-  .bee {
-    position: absolute;
-    width: 80px;
-  }
-  
-  .bee-left {
-    top: 50px;
-    left: -110px;
-    width: 200px;
-    height: 120px;
-  }
-  
-  .bee-right {
-    top: 300px;
-    right: -100px;
-    width: 180px;
-    height: 110px;
-  }
+
   
 
-  .desc {
-    color: #b67504;
-  }
